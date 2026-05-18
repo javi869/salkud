@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+
+input{
+  padding:5px;
+}
+</style>
+
+<body>
+ <div style="text-align:center;">
+  <img src="logo.png" width="500">
+
+
+<p>Dirección de la unidad hospitalaria: Avenida Salud Integral #2450, Colonia Zona Río, Tijuana, Baja California, C.P. 22010.</p>
+
+<h1>Historia Clínica acorde con la NOM vigente 168-SSA1-1998</h1>
+ </div>
+<table style="width:100%">
+
+<tr>
+<td>
+<p>Médico tratante:</p>
+<input type="text" id="nombre" placeholder="Dr. Alejandro Torres">
+</td>
+
+<td>
+<p>Fecha de Historia Clínica:</p>
+<input type="text" id="Fecha" placeholder="2024-06-15">
+</td>
+</tr>
+
+<tr>
+
+<td>
+<p>Nombre del paciente:</p>
+<input type="text" id="nombrePaciente" placeholder="María Fernanda López Ruiz">
+</td>
+
+<td>
+
+<div style="display:flex; gap:20px;">
+
+<div>
+<p>Edad</p>
+<input type="number" id="Edad" placeholder="46" style="width:80px;">
+</div>
+
+<div>
+<p>Sexo</p>
+<input type="text" id="Sexo" placeholder="Femenino" style="width:120px;">
+</div>
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Domicilio:</p>
+<input type="text" id="Domicilio" placeholder="Tijuana, Baja California">
+</td>
+
+<td>
+<p>Teléfono:</p>
+<input type="text" id="Telefono" placeholder="6643214587">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Datos completos de familiar responsable:</p>
+<input type="text" id="FamiliarResponsable" placeholder="Laura Ruiz López - Hermana" style="width:500px;">
+</td>
+
+<td>
+<p>Religión:</p>
+<input type="text" id="Religion" placeholder="Católica">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Fecha de Nacimiento:</p>
+<input type="text" id="Nacimiento" placeholder="1978-04-12">
+</td>
+
+<td>
+<p>Peso:</p>
+<input type="number" id="Peso" placeholder="72">
+</td>
+
+</tr>
+
+</table>
+
+<br>
+
+<button onclick="enviar()">Guardar</button>
+
+<p id="mensaje"></p>
+
+<script>
+
+function enviar() {
+
+const datos = {
+
+nombre: document.getElementById("nombre").value,
+edad: document.getElementById("Edad").value,
+fecha: document.getElementById("Fecha").value,
+nombrepaciente: document.getElementById("nombrePaciente").value,
+sexo: document.getElementById("Sexo").value,
+domicilio: document.getElementById("Domicilio").value,
+telefono: document.getElementById("Telefono").value,
+familiarresponsable: document.getElementById("FamiliarResponsable").value,
+religion: document.getElementById("Religion").value,
+peso: document.getElementById("Peso").value
+
+};
+
+fetch("https://script.google.com/macros/s/AKfycbwlI4zPsfqGkfsFDk2D8MLjE9rlzYj1kiprFKbF8zUHzxDxCx8YYbOBGD2hiZlDopl5/exec", {
+
+method: "POST",
+
+mode: "no-cors",
+
+headers: {
+"Content-Type": "application/json"
+},
+
+body: JSON.stringify(datos)
+
+});
+
+document.getElementById("mensaje").innerText =
+"Datos enviados";
+
+}
+
+</script>
+
+<br><br><br>
+
+<h2>Antecedentes Hereditarios y Familiares</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+
+<p>Antecedentes:</p>
+
+<input type="text" placeholder="Diabetes mellitus">
+<br><br>
+
+<input type="text" placeholder="Hipertensión arterial">
+<br><br>
+
+<input type="text" placeholder="Asma">
+
+</td>
+
+<td>
+
+<p>Familiar que lo padece:</p>
+
+<input type="text" placeholder="Madre">
+<br><br>
+
+<input type="text" placeholder="Padre">
+<br><br>
+
+<input type="text" placeholder="Abuelo materno">
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Antecedentes Personales No Patológicos</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+
+<p>Lugar de Nacimiento:</p>
+
+<input type="text" placeholder="Mexicali">
+
+</td>
+
+<td>
+
+<div style="display:flex; gap:20px;">
+
+<div>
+<p>Fecha:</p>
+<input type="date">
+</div>
+
+<div>
+<p>Lugar de residencia:</p>
+<input type="text" placeholder="Tijuana">
+</div>
+
+</div>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Habito tabáquico:</p>
+<input type="text" placeholder="Niega">
+</td>
+
+<td>
+<p>Ocupación actual:</p>
+<input type="text" placeholder="Secretaria">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Habito alcohólico:</p>
+<input type="text" placeholder="Ocasional">
+</td>
+
+<td>
+<p>Tipo de sangre:</p>
+<input type="text" placeholder="A positivo">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Ejercicio:</p>
+<input type="text" placeholder="Caminata 3 veces por semana">
+</td>
+
+<td>
+
+<p>Hábitos de higiene:</p>
+
+<input type="text" placeholder="Baño diario" style="width:800px;">
+<br><br>
+
+<input type="text" placeholder="Lavado de manos frecuente" style="width:800px;">
+<br><br>
+
+<input type="text" placeholder="Cepillado dental 3 veces al día" style="width:800px;">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+<p>Adicciones:</p>
+<input type="text" placeholder="Niega">
+</td>
+
+<td>
+<p>Alergias:</p>
+<input type="text" placeholder="Sulfas">
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Antecedentes Personales Patológicos</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+
+<p>Antecedentes:</p>
+
+<input type="text" placeholder="Apendicectomía">
+<br><br>
+
+<input type="text" placeholder="Hipertensión arterial">
+<br><br>
+
+<input type="text" placeholder="Gastritis crónica">
+
+</td>
+
+<td>
+
+<p>Fecha de inicio:</p>
+
+<input type="text" placeholder="Hace 10 años">
+<br>
+
+<input type="text" placeholder="Desde 2018" style="width:300px;">
+<br><br>
+
+<input type="text" placeholder="Hace 8 años">
+<br>
+
+<input type="text" placeholder="Controlada con medicamento" style="width:300px;">
+<br><br>
+
+<input type="text" placeholder="Hace 3 años">
+<br>
+
+<input type="text" placeholder="Tratamiento actual" style="width:300px;">
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Antecedentes Ginecoobstetricos</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+<p>Menarca:</p>
+<input type="text" placeholder="13 años">
+</td>
+
+<td>
+<p>FUR:</p>
+<input type="text" placeholder="Hace 2 meses">
+</td>
+
+<td>
+<p>Metodo anticonceptivo:</p>
+<input type="text" placeholder="DIU">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<div style="display:flex; gap:20px;">
+
+<div>
+<p>G:</p>
+<input type="number" placeholder="2">
+</div>
+
+<div>
+<p>P:</p>
+<input type="number" placeholder="2">
+</div>
+
+<div>
+<p>C:</p>
+<input type="number" placeholder="0">
+</div>
+
+<div>
+<p>A:</p>
+<input type="number" placeholder="0">
+</div>
+
+</div>
+
+</td>
+
+<td>
+<p>Fecha Papanicolau:</p>
+<input type="text" placeholder="Hace 1 año">
+</td>
+
+<td>
+<p>Fecha Mastografía:</p>
+<input type="text" placeholder="Hace 2 años">
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Medicacion Actual</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+<p>Medicamento:</p>
+<input type="text" placeholder="Losartán">
+</td>
+
+<td>
+<p>Dosis:</p>
+<input type="text" placeholder="50 mg cada 24 horas">
+</td>
+
+<td>
+<p>Fecha de inicio:</p>
+<input type="text" placeholder="Hace 8 años">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<p>Suplementos alimentarios:</p>
+
+<input type="text" placeholder="Vitamina D">
+<br><br>
+
+<input type="text" placeholder="Omega 3">
+<br><br>
+
+<input type="text" placeholder="Complejo B">
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Padecimiento Actual</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+
+<p>Padecimiento:</p>
+
+<input type="text" placeholder="Dolor abdominal tipo cólico acompañado de náusea, fiebre y diarrea" style="width:800px;">
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Interrogatorio por Aparato y Sistemas</h2>
+
+<table style="width:100%">
+
+<tr>
+<td><p><strong>Digestivo:</strong></p></td>
+<td><input type="text" placeholder="Náusea, dolor abdominal y diarrea ocasional" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Respiratorio:</strong></p></td>
+<td><input type="text" placeholder="Niega tos y dificultad respiratoria" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Circulatorio:</strong></p></td>
+<td><input type="text" placeholder="Niega edema y palpitaciones" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Musculoesquelético:</strong></p></td>
+<td><input type="text" placeholder="Cansancio muscular generalizado" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Nervioso:</strong></p></td>
+<td><input type="text" placeholder="Cefalea ocasional" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Urinario:</strong></p></td>
+<td><input type="text" placeholder="Niega disuria" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Reproductor:</strong></p></td>
+<td><input type="text" placeholder="Sin alteraciones aparentes" style="width:700px;"></td>
+</tr>
+
+<tr>
+<td><p><strong>Sentidos:</strong></p></td>
+<td><input type="text" placeholder="Uso de lentes para visión cercana" style="width:700px;"></td>
+</tr>
+
+</table>
+
+<br><br><br>
+
+<h2>Exploracion Fisica</h2>
+
+<table style="width:100%">
+
+<tr>
+
+<td>
+<p><strong>TA:</strong></p>
+<input type="text" placeholder="122/78">
+</td>
+
+<td>
+<p><strong>Pulso:</strong></p>
+<input type="text" placeholder="80 lpm">
+</td>
+
+<td>
+<p><strong>FR:</strong></p>
+<input type="text" placeholder="20 rpm">
+</td>
+
+<td>
+<p><strong>Sat:</strong></p>
+<input type="text" placeholder="96%">
+</td>
+
+<td>
+<p><strong>Temp:</strong></p>
+<input type="text" placeholder="38 °C">
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<p><strong>Exploración:</strong></p>
+
+<input type="text" placeholder="Paciente consciente y orientada" style="width:500px;">
+<br><br>
+
+<input type="text" placeholder="Abdomen blando con dolor leve en epigastrio" style="width:500px;">
+<br><br>
+
+<input type="text" placeholder="Campos pulmonares ventilados y ruidos cardiacos normales" style="width:500px;">
+
+</td>
+
+</tr>
+
+</table>
+
+<br><br><br><br>
+
+<h2>Exámenes de laboratorio y gabinete</h2>
+
+<p><strong>Impresión Diagnóstica:</strong></p>
+
+<input type="text" placeholder="Gastroenteritis aguda y deshidratación leve" style="width:500px;">
+
+<br><br>
+
+<p><strong>Plan diagnóstico:</strong></p>
+
+<input type="text" placeholder="Biometría hemática, química sanguínea y EGO" style="width:500px;">
+
+<br><br>
+
+<p><strong>Plan terapéutico:</strong></p>
+
+<input type="text" placeholder="Hidratación oral, dieta blanda y reposo relativo" style="width:500px;">
+
+<br><br><br><br>
+
+<div style="text-align:center; margin-top:80px;">
+
+  <img src="firma.png" width="200">
+  <hr style="width:350px;">
+
+  <p>
+    <strong>
+      Iker Javier Alfaro Sánchez
+    </strong>
+  </p>
+
+
+  <p>
+    Nombre y firma de quien realiza la historia clínica
+  </p>
+
+</div>
+
+</body>
+</html>
+
